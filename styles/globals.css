@@ -1,0 +1,677 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 14px;
+  --background: #0a0a0f;
+  --foreground: #e2e8f0;
+  --card: #1a1a2e;
+  --card-foreground: #e2e8f0;
+  --popover: #1a1a2e;
+  --popover-foreground: #e2e8f0;
+  --primary: #f59e0b;
+  --primary-foreground: #0a0a0f;
+  --secondary: #16213e;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #0f3460;
+  --accent-foreground: #f1f5f9;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: rgba(248, 250, 252, 0.1);
+  --input: rgba(248, 250, 252, 0.05);
+  --input-background: rgba(248, 250, 252, 0.02);
+  --switch-background: #334155;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #f59e0b;
+  --chart-1: #f59e0b;
+  --chart-2: #3b82f6;
+  --chart-3: #8b5cf6;
+  --chart-4: #06d6a0;
+  --chart-5: #ef4444;
+  --radius: 0.75rem;
+  --sidebar: #0f172a;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #f59e0b;
+  --sidebar-primary-foreground: #0a0a0f;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: rgba(248, 250, 252, 0.1);
+  --sidebar-ring: #f59e0b;
+}
+
+.dark {
+  --background: #0a0a0f;
+  --foreground: #e2e8f0;
+  --card: #1a1a2e;
+  --card-foreground: #e2e8f0;
+  --popover: #1a1a2e;
+  --popover-foreground: #e2e8f0;
+  --primary: #f59e0b;
+  --primary-foreground: #0a0a0f;
+  --secondary: #16213e;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #0f3460;
+  --accent-foreground: #f1f5f9;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: rgba(248, 250, 252, 0.1);
+  --input: rgba(248, 250, 252, 0.05);
+  --ring: #f59e0b;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: #f59e0b;
+  --chart-2: #3b82f6;
+  --chart-3: #8b5cf6;
+  --chart-4: #06d6a0;
+  --chart-5: #ef4444;
+  --sidebar: #0f172a;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-primary: #f59e0b;
+  --sidebar-primary-foreground: #0a0a0f;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-border: rgba(248, 250, 252, 0.1);
+  --sidebar-ring: #f59e0b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply text-foreground min-h-screen;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d4a 25%, #3a3a5c 50%, #2d3748 75%, #374151 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Enhanced whitish glowy sky background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      /* Bright white cosmic clouds */
+      radial-gradient(ellipse at top, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 40%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 60%, rgba(255, 255, 255, 0.08) 0%, transparent 45%),
+      /* Aurora Borealis effect with white tints */
+      radial-gradient(ellipse at 80% 20%, rgba(255, 255, 255, 0.1) 0%, rgba(34, 197, 94, 0.06) 30%, transparent 50%),
+      radial-gradient(ellipse at 20% 80%, rgba(255, 255, 255, 0.08) 0%, rgba(59, 130, 246, 0.05) 25%, transparent 45%),
+      /* Enhanced white star field */
+      radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(1px 1px at 40% 70%, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 90% 40%, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(2px 2px at 50% 50%, rgba(255, 255, 255, 0.85), transparent),
+      radial-gradient(1px 1px at 15% 85%, rgba(255, 255, 255, 0.75), transparent);
+    background-repeat: repeat;
+    background-size: 
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%, 
+      100% 100%,
+      400px 400px,
+      300px 300px,
+      200px 200px,
+      150px 150px,
+      350px 350px;
+    pointer-events: none;
+    z-index: 0;
+    animation: skyAnimation 25s ease-in-out infinite alternate;
+  }
+
+  /* Enhanced twinkling white stars animation */
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      /* Bright white twinkling stars */
+      radial-gradient(2px 2px at 25% 25%, rgba(255, 255, 255, 0.95), transparent),
+      radial-gradient(1px 1px at 75% 75%, rgba(255, 255, 255, 0.8), transparent),
+      radial-gradient(1px 1px at 45% 15%, rgba(255, 255, 255, 0.85), transparent),
+      radial-gradient(2px 2px at 65% 85%, rgba(255, 255, 255, 0.9), transparent),
+      radial-gradient(1px 1px at 10% 60%, rgba(255, 255, 255, 0.75), transparent),
+      radial-gradient(1px 1px at 85% 30%, rgba(255, 255, 255, 0.7), transparent),
+      /* Subtle colored accents to maintain cosmic feel */
+      radial-gradient(1px 1px at 60% 40%, rgba(139, 92, 246, 0.4), transparent),
+      radial-gradient(1px 1px at 30% 70%, rgba(34, 197, 94, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 
+      300px 300px,
+      400px 400px,
+      200px 200px,
+      350px 350px,
+      250px 250px,
+      180px 180px,
+      450px 450px,
+      320px 320px;
+    pointer-events: none;
+    z-index: 1;
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes skyAnimation {
+    0% { 
+      opacity: 0.8; 
+      transform: scale(1);
+      filter: brightness(1.1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.01);
+      filter: brightness(1.2);
+    }
+    100% { 
+      opacity: 0.9; 
+      transform: scale(1);
+      filter: brightness(1.1);
+    }
+  }
+
+  @keyframes twinkle {
+    0% { 
+      opacity: 0.6; 
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+    100% { 
+      opacity: 0.6; 
+      transform: scale(1);
+    }
+  }
+
+  /* Enhanced white shooting stars */
+  .shooting-star {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 3px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7), rgba(139, 92, 246, 0.6));
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2;
+    animation: shootingStar 3s linear infinite;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 12px rgba(255, 255, 255, 0.4);
+  }
+
+  @keyframes shootingStar {
+    0% {
+      transform: translateX(-100px) translateY(-100px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100vw) translateY(100vh);
+      opacity: 0;
+    }
+  }
+
+  /* Floating particles - simplified */
+  .cosmic-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Ensure all background animations don't interfere with interactions */
+  body::before, body::after {
+    pointer-events: none !important;
+  }
+
+  .cosmic-particles::before,
+  .cosmic-particles::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(139, 92, 246, 0.4) 50%, transparent 70%);
+    border-radius: 50%;
+    animation: float 15s infinite linear;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  }
+
+  .cosmic-particles::before {
+    top: 10%;
+    left: 20%;
+    animation-delay: -5s;
+  }
+
+  .cosmic-particles::after {
+    top: 60%;
+    right: 30%;
+    animation-delay: -10s;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(34, 197, 94, 0.4) 50%, transparent 70%);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.6;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.4;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.4;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+  scroll-padding-top: 60px; /* Optimized for navigation */
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+/* Optimize scrolling performance */
+* {
+  scroll-margin-top: 60px;
+}
+
+/* Smooth section transitions - reduced for better performance */
+section {
+  scroll-snap-align: start;
+  will-change: transform;
+}
+
+/* Fix sticky scrolling issues */
+body {
+  scroll-snap-type: none; /* Disable for smoother scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize animations for better scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  section {
+    transition: opacity 0.2s ease-out;
+  }
+}
+
+/* Reduce animations on lower-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .shooting-star,
+  body::before,
+  body::after {
+    animation: none !important;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  body::before {
+    animation-duration: 30s;
+  }
+  
+  body::after {
+    animation-duration: 8s;
+  }
+  
+  .shooting-star {
+    animation-duration: 2s;
+  }
+}
+
+/* Enhanced glassmorphism effect */
+.glass-effect {
+  backdrop-filter: blur(16px);
+  background: rgba(26, 26, 46, 0.8);
+  border: 1px solid rgba(248, 250, 252, 0.1);
+}
+
+/* Glow effects */
+.glow-amber {
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Ensure interactive elements are properly clickable */
+button, a, [role="button"] {
+  cursor: pointer;
+  user-select: none;
+}
+
+button:hover, a:hover, [role="button"]:hover {
+  cursor: pointer;
+}
+
+/* Prevent text selection on interactive elements */
+.group, .cursor-pointer {
+  user-select: none;
+}
+
+/* Brand name styling - consistent white appearance for "Ambienco" */
+.brand-name {
+  color: white;
+  font-weight: 600;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+}
+
+.brand-name-large {
+  color: white;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.3));
+}
+
+/* Neon text effects */
+.neon-text {
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+.golden-neon-text {
+  animation: goldenPulse 2s ease-in-out infinite alternate;
+}
+
+.neon-border {
+  box-shadow: 
+    0 0 5px #22d3ee,
+    0 0 10px #22d3ee,
+    0 0 15px #22d3ee,
+    0 0 20px #3b82f6,
+    inset 0 0 5px #22d3ee;
+  border: 1px solid #22d3ee;
+}
+
+.golden-neon-border {
+  box-shadow: 
+    0 0 8px #f59e0b,
+    0 0 16px #f59e0b,
+    0 0 24px #fbbf24,
+    0 0 32px #fbbf24,
+    inset 0 0 8px #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+/* Electric effect */
+@keyframes electric {
+  0% { 
+    filter: hue-rotate(0deg) brightness(1);
+    text-shadow: 
+      0 0 10px #22d3ee,
+      0 0 20px #22d3ee,
+      0 0 30px #3b82f6,
+      0 0 40px #3b82f6;
+  }
+  25% {
+    filter: hue-rotate(90deg) brightness(1.2);
+    text-shadow: 
+      0 0 15px #22d3ee,
+      0 0 25px #22d3ee,
+      0 0 35px #3b82f6,
+      0 0 45px #3b82f6;
+  }
+  50% {
+    filter: hue-rotate(180deg) brightness(0.9);
+    text-shadow: 
+      0 0 8px #22d3ee,
+      0 0 18px #22d3ee,
+      0 0 28px #3b82f6,
+      0 0 38px #3b82f6;
+  }
+  75% {
+    filter: hue-rotate(270deg) brightness(1.1);
+    text-shadow: 
+      0 0 12px #22d3ee,
+      0 0 22px #22d3ee,
+      0 0 32px #3b82f6,
+      0 0 42px #3b82f6;
+  }
+  100% { 
+    filter: hue-rotate(360deg) brightness(1);
+    text-shadow: 
+      0 0 10px #22d3ee,
+      0 0 20px #22d3ee,
+      0 0 30px #3b82f6,
+      0 0 40px #3b82f6;
+  }
+}
+
+/* Neon text animation */
+@keyframes neonSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Golden neon text animation */
+@keyframes goldenSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Enhanced neon glow animation */
+@keyframes neonPulse {
+  0% {
+    text-shadow: 
+      0 0 5px #22d3ee,
+      0 0 10px #22d3ee,
+      0 0 15px #22d3ee,
+      0 0 20px #3b82f6,
+      0 0 35px #3b82f6,
+      0 0 40px #3b82f6;
+  }
+  50% {
+    text-shadow: 
+      0 0 2px #22d3ee,
+      0 0 5px #22d3ee,
+      0 0 8px #22d3ee,
+      0 0 12px #3b82f6,
+      0 0 18px #3b82f6,
+      0 0 25px #3b82f6;
+  }
+  100% {
+    text-shadow: 
+      0 0 5px #22d3ee,
+      0 0 10px #22d3ee,
+      0 0 15px #22d3ee,
+      0 0 20px #3b82f6,
+      0 0 35px #3b82f6,
+      0 0 40px #3b82f6;
+  }
+}
+
+/* Golden neon glow animation */
+@keyframes goldenPulse {
+  0% {
+    text-shadow: 
+      0 0 8px #f59e0b,
+      0 0 16px #f59e0b,
+      0 0 24px #fbbf24,
+      0 0 32px #fbbf24,
+      0 0 48px #d97706,
+      0 0 64px #d97706;
+  }
+  50% {
+    text-shadow: 
+      0 0 4px #f59e0b,
+      0 0 8px #f59e0b,
+      0 0 12px #fbbf24,
+      0 0 16px #fbbf24,
+      0 0 24px #d97706,
+      0 0 32px #d97706;
+  }
+  100% {
+    text-shadow: 
+      0 0 8px #f59e0b,
+      0 0 16px #f59e0b,
+      0 0 24px #fbbf24,
+      0 0 32px #fbbf24,
+      0 0 48px #d97706,
+      0 0 64px #d97706;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 158, 11, 0.7);
+}

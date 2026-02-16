@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Ambienco LED Lighting Solutions
+# Premium LED lighting, furniture, and electrical products in Saudi Arabia
+
+Sitemap: https://ambienco.sa/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin
+Disallow: /#admin
+
+# Allow important pages
+Allow: /
+Allow: /index.html
+Allow: /styles/
+Allow: /components/
+
+# Contact Information
+# Phone: 0570514881
+# Location: Saudi Arabia
+# Built by: Unaise

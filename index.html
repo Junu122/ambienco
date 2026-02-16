@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ambienco | LED Lighting Solutions Saudi Arabia</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Ambienco - Premium LED lighting, furniture, and electrical solutions in Saudi Arabia. Professional lighting manufacturer with innovative designs and quality products. Contact: 0570514881">
+  <meta name="keywords" content="LED lighting Saudi Arabia, Ambienco, lighting manufacturer, furniture, electrical solutions, Riyadh lighting, commercial lighting, residential lighting">
+  <meta name="author" content="Ambienco LED Lighting">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ambienco.sa/">
+  <meta property="og:title" content="Ambienco | Premium LED Lighting Solutions Saudi Arabia">
+  <meta property="og:description" content="Professional LED lighting, furniture, and electrical solutions. Illuminate • Empower • Live with Ambienco's innovative designs.">
+  <meta property="og:image" content="https://ambienco.sa/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://ambienco.sa/">
+  <meta property="twitter:title" content="Ambienco | Premium LED Lighting Solutions Saudi Arabia">
+  <meta property="twitter:description" content="Professional LED lighting, furniture, and electrical solutions. Illuminate • Empower • Live with Ambienco's innovative designs.">
+  <meta property="twitter:image" content="https://ambienco.sa/og-image.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Vite will inject the CSS and JS automatically in production -->
+
+  <style>
+    /* Ensure body takes full height */
+    html, body, #root {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Loading screen */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 3px solid rgba(245, 158, 11, 0.3);
+      border-top: 3px solid #f59e0b;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .loading-text {
+      color: #f59e0b;
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <!-- <div id="loading-screen" class="loading-screen">
+    <div style="text-align: center;">
+      <div class="loader"></div>
+      <div class="loading-text">
+        <div style="font-size: 24px; margin-bottom: 10px;">⚡ Ambiencoo</div>
+        <div>Loading LED Solutions...</div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Root Application Container -->
+  <div id="root"></div>
+
+  <!-- Error Boundary -->
+  <!-- <script>
+    window.addEventListener('error', function(e) {
+      console.error('Application Error:', e.error);
+      const errorDiv = document.createElement('div');
+      errorDiv.innerHTML = `
+        <div style="
+          position: fixed; 
+          top: 0; 
+          left: 0; 
+          width: 100%; 
+          height: 100%; 
+          background: #0a0a0f; 
+          color: white; 
+          display: flex; 
+          align-items: center; 
+          justify-content: center; 
+          flex-direction: column;
+          font-family: Inter, sans-serif;
+          z-index: 10000;
+        ">
+          <h1 style="color: #f59e0b; margin-bottom: 20px;"> Ambiencoo</h1>
+          <p style="margin-bottom: 10px;">Loading application...</p>
+          <p style="font-size: 14px; color: #94a3b8;">Please refresh the page if this persists.</p>
+        </div>
+      `;
+      document.body.appendChild(errorDiv);
+    });
+  </script> -->
+
+  <!-- Main Application Entry Point -->
+  <script type="module" src="/main.tsx"></script>
+
+  <!-- Analytics and Performance -->
+  <script>
+    // Simple analytics tracking
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          console.log('SW registered: ', registration);
+        }).catch(function(registrationError) {
+          console.log('SW registration failed: ', registrationError);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
