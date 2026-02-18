@@ -62,7 +62,7 @@ export function Navigation() {
             >
               <div className="relative">
                 <motion.img 
-                  src={"../assets/3f877098e81cedb3498ccf39e7ce8c5c7a1f38ff.png"} 
+                  src={"/images/3f877098e81cedb3498ccf39e7ce8c5c7a1f38ff.png"} 
                   alt="Ambienco - Illuminate. Empower. Live." 
                   className="h-16 w-auto object-contain filter brightness-110"
                   whileHover={{ scale: 1.1, filter: "brightness(1.25)" }}
