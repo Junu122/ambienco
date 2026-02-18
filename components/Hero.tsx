@@ -116,7 +116,7 @@ export function Hero() {
             >
               {/* Main Logo */}
               <motion.img 
-                src={newAmbiencoLogo} 
+                src={"../assets/73fac93bfe79ff6db08ec87812f30e661ef459c3.png"} 
                 alt="Ambienco - Design. Power. Shine." 
                 className="h-80 w-80 object-contain relative z-10 drop-shadow-2xl"
                 animate={{

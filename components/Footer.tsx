@@ -16,7 +16,7 @@ import {
   Home,
   MessageCircle
 } from 'lucide-react';
-import newAmbiencoLogo from '../assets/73fac93bfe79ff6db08ec87812f30e661ef459c3.png';
+
 import sahahAlTawridLogo from '../assets/3f877098e81cedb3498ccf39e7ce8c5c7a1f38ff.png';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
@@ -109,7 +109,7 @@ export function Footer() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <motion.img 
-                src={newAmbiencoLogo} 
+                src={"../assets/73fac93bfe79ff6db08ec87812f30e661ef459c3.png"} 
                 alt="Ambienco - Design. Power. Shine." 
                 className="h-16 w-16 object-contain mr-3"
                 animate={{
@@ -298,7 +298,7 @@ export function Footer() {
             >
               <div className="w-96 h-28 flex items-center justify-center p-4">
                 <ImageWithFallback
-                  src={sahahAlTawridLogo}
+                  src={"../assets/3f877098e81cedb3498ccf39e7ce8c5c7a1f38ff.png"}
                   alt="Sahah Al Tawrid Trading Est."
                   className="w-full h-full object-contain filter brightness-110 group-hover:brightness-125 group-hover:scale-105 transition-all duration-300"
                 />

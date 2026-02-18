@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Menu, X, Package, MessageSquare, Mail, Download } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import newAmbiencoLogo from '../assets/3f877098e81cedb3498ccf39e7ce8c5c7a1f38ff.png';
+
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,7 +62,7 @@ export function Navigation() {
             >
               <div className="relative">
                 <motion.img 
-                  src={newAmbiencoLogo} 
+                  src={"../assets/3f877098e81cedb3498ccf39e7ce8c5c7a1f38ff.png"} 
                   alt="Ambienco - Illuminate. Empower. Live." 
                   className="h-16 w-auto object-contain filter brightness-110"
                   whileHover={{ scale: 1.1, filter: "brightness(1.25)" }}
